@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AbcService {
 
-  private apUrl="http://5868ca90657edf1200b9a60b.mockapi.io/api/employees";
+  private apUrl="http://5868ca90657edf1200b9a60b.mockapi.io/api/employees/";
 
   constructor(private _http:Http){
 
@@ -14,6 +14,7 @@ export class AbcService {
   Getlist(): Observable<any[]>{
     return this._http.get(this.apUrl).map((response:Response)=> response.json());
   }
-
-
+  Getlistid(id:number): Observable<any[]>{
+    return this._http.get(this.apUrl+id).map((response:Response)=> response.json());
+  }
 }

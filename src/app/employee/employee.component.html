@@ -1,3 +1,6 @@
+<!--<div class="row">-->
+  <!--<a [routerLink]="['employee-add']">Add new</a>-->
+<!--</div>-->
 <table class="table">
   <thead>
   <tr>
@@ -13,6 +16,26 @@
     <td>{{employee.age}}</td>
     <td>{{employee.status}}</td>
     <td>{{employee.createAt}}</td>
+    <td>
+      <a [routerLink]="['/detail',employee.id]">Detail</a>
+      <a [routerLink]="['/edit',employee.id]">Edit</a>
+      <a [routerLink]="['/add',employee.id]">Add</a>
+    </td>
   </tr>
   </tbody>
 </table>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li *ngFor="let page of pages"><a [routerLink]="['/demo']" [queryParams]="{pageNumber:page}">{{page}}</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

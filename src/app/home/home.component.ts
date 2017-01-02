@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Routes}               from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,8 +7,10 @@ import {Routes}               from '@angular/router';
 })
 export class HomeComponent{
 
-  constructor(private routes:Routes) {}
-  GotoDemo(){
-    this.routes.navigate(['demo']);
+  constructor(private router: Router) {
+
+  }
+  GotoDemo(): void {
+    this.router.navigate(['demo']);
   }
 }
