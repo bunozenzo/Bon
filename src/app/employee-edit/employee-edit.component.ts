@@ -9,7 +9,7 @@ import {AbcService} from "../services/abc.service";
 })
 export class EmployeeEditComponent implements OnInit {
 
-  public _id: number;
+  public _id1: number;
   public subcription: Subscription;
   public employees2: any[];
 
@@ -21,9 +21,9 @@ export class EmployeeEditComponent implements OnInit {
   ngOnInit() {
     // params cho phep lay params tu tren url tra ve 1 obsaveable
     this.subcription = this.activatedRouter.params.subscribe(params => {
-      this._id = params['id'];
+      this._id1 = params['id'];
     });
-    this.abcSevice.Getlistid(this._id).subscribe((response: any) => {
+    this.abcSevice.Getlistid(this._id1).subscribe((response: any) => {
           this.employees2 = response;
         }, error => {
           console.log("System arror API");
@@ -31,6 +31,18 @@ export class EmployeeEditComponent implements OnInit {
     )
   }
   SaveForm(){
+    this.abcSevice.Update(this._id1,this.employees2).subscribe(response=>{
+      if(response){
+        alert('save success');
+        this.router.navigate(['/demo'])
+      }
+    })
   }
-
+  ngOnDestroy() {
+    //
+    this.subcription.unsubscribe();
+  }
+  GotoDemo(){
+    this.router.navigate(['demo']);
+  }
 }

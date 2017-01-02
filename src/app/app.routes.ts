@@ -17,7 +17,7 @@ export const routes: Routes = [
     { path: 'demo',  component: EmployeeComponent,canActivate:[CheckLoginGuard] },
     { path: 'login', component: LoginComponent  },
     { path: 'emp', component: DemoComponent  },
-    { path: 'add/:id', component: EmployeeEditComponent },
+    { path: 'add', component: EmployeeAddComponent },
     { path: 'edit/:id', component: EmployeeEditComponent },
     { path: 'detail/:id', component: EmployeeDetailComponent,canDeactivate:[CheckSaveFormGuard],
         children:[

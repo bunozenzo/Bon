@@ -1,6 +1,14 @@
-<!--<div class="row">-->
-  <!--<a [routerLink]="['employee-add']">Add new</a>-->
-<!--</div>-->
+<div class="row">
+  <div class="col-md-4">
+    <input type="text" [(ngModel)]="keyword" name="keyword"/>
+    <button (click)="Search()">Search
+    </button>
+  </div>
+  <div class="col-md-4">
+    <a [routerLink]="['/add']">Add new</a>
+  </div>
+
+</div>
 <table class="table">
   <thead>
   <tr>
@@ -19,7 +27,7 @@
     <td>
       <a [routerLink]="['/detail',employee.id]">Detail</a>
       <a [routerLink]="['/edit',employee.id]">Edit</a>
-      <a [routerLink]="['/add',employee.id]">Add</a>
+      <button (click)="Delete(employee.id)" class="btn btn-danger">Delete</button>
     </td>
   </tr>
   </tbody>

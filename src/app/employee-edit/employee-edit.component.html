@@ -1,20 +1,18 @@
-<form class="table" #f="ngForm" (ngSubmit)="SaveForm(f.value)" *ngIf="employees2">
-  <tr>
-    <td>Name</td>
-    <td><input type="text" name="name" [(ngModel)]="emoloyee2.name"/></td>
-  </tr>
-  <tr>
-    <td>Age</td>
-    <td><input type="text" name="age" [(ngModel)]="emoloyee2.age"/></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td><input type="text" name="status" [(ngModel)]="emoloyee2.status"/></td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <button type="submit">Save</button>
-      <button type="button">Cancel</button>
-    </td>
-  </tr>
+<form class="form" #f="ngForm" (ngSubmit)="SaveForm(f.value)" *ngIf="employees2">
+    <div class="form-group">
+        <label>Name</label>
+        <div><input type="text" name="name" [(ngModel)]="employees2.name"/></div>
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <div><input type="text" name="age" [(ngModel)]="employees2.age"/></div>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <div><input type="checkbox" name="status" [(ngModel)]="employees2.status"/></div>
+    </div>
+        <div class="form-group">
+            <button type="submit">Save</button>
+            <button type="button" (click)="GotoDemo()">Cancel</button>
+        </div>
 </form>
